@@ -9,7 +9,6 @@ import java.util.Date;
 
 public class User {
 
-
     private int age;
     @JsonIgnore//不会序列化
     private String pwd;
