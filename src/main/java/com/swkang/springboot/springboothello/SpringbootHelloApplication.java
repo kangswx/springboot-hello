@@ -10,4 +10,10 @@ public class SpringbootHelloApplication {
         SpringApplication.run(SpringbootHelloApplication.class, args);
     }
 
+
+    public String test(){
+        return "123456";
+    }
+
+
 }
