@@ -3,6 +3,7 @@ package com.swkang.springboot.springboothello.controller;
 import com.swkang.springboot.springboothello.domain.User;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +35,6 @@ public class GetController {
         return params;
     }
 
-
     /**
      * 默认值，是否必须的参数
      * @param from
@@ -62,4 +62,28 @@ public class GetController {
         params.put("user", user);
         return params;
     }
+
+    /**
+     * 获取http头信息
+     * @param accessToken
+     * @param id
+     * @return
+     */
+    @GetMapping("/v1/get_hreader")
+    public Object getHeader(@RequestHeader("access_token") String accessToken, String id){
+        params.clear();
+        params.put("access_token", accessToken);
+        params.put("id", id);
+        return params;
+    }
+
+    @GetMapping("/v1/test_request")
+    public Object testrequest(HttpServletRequest request){
+        params.clear();
+        String id = request.getParameter("id");
+        params.put("id", id);
+        return params;
+    }
+
+
 }
