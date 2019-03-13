@@ -1,9 +1,11 @@
 package com.swkang.springboot.springboothello.controller;
 
+import com.swkang.springboot.springboothello.domain.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,5 +23,15 @@ public class SimpleController {
         Map<String, String> map = new HashMap<>();
         map.put("name", "swkang");
         return map;
+    }
+
+    /**
+     * json测试的方法
+     * @return
+     */
+    @RequestMapping("/testjson")
+    public Object testJson(){
+        User user = new User(18, "123456", "18629676774", new Date());
+        return user;
     }
 }
