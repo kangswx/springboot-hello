@@ -12,13 +12,13 @@ public class GetController {
 
     private Map<String, Object> params = new HashMap<>();
 
-    @RequestMapping(path = "{city_id}/{user_id}",method = RequestMethod.GET)
+  /*  @RequestMapping(path = "{city_id}/{user_id}",method = RequestMethod.GET)
     public Object findUser(@PathVariable("city_id") String cityId, @PathVariable("user_id") String userId){
         params.clear();
         params.put("cityId", cityId);
         params.put("userId", userId);
         return params;
-    }
+    }*/
 
     /**
      * 测试GetMapping
