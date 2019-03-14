@@ -25,6 +25,7 @@ public class FileController {
     @RequestMapping("/upload")
     @ResponseBody
     public JsonData upload(@RequestParam("head_img") MultipartFile file, HttpServletRequest request) {
+
         String name = request.getParameter("name");
         System.out.println("name: " + name);
 
