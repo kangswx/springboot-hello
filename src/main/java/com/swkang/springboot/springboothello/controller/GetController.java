@@ -1,6 +1,8 @@
 package com.swkang.springboot.springboothello.controller;
 
+import com.swkang.springboot.springboothello.domain.ServerSettings;
 import com.swkang.springboot.springboothello.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -82,6 +84,14 @@ public class GetController {
         String id = request.getParameter("id");
         params.put("id", id);
         return params;
+    }
+
+    @Autowired
+    private ServerSettings serverSettings;
+
+    @GetMapping("/v1/test_properties")
+    public Object testProperties(){
+        return serverSettings;
     }
 
 }
