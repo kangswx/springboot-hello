@@ -34,4 +34,13 @@ public class SimpleController {
         User user = new User(18, "123456", "18629676774", new Date());
         return user;
     }
+
+    /**
+     * MockMvc测试
+     * @return
+     */
+    @RequestMapping("/test/home")
+    public String home(){
+        return "swkangclass";
+    }
 }
