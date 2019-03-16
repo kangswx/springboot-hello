@@ -1,6 +1,8 @@
 package com.swkang.springboot.springboothello.controller;
 
 import com.swkang.springboot.springboothello.domain.JsonData;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,9 +15,11 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Controller
+@PropertySource({"classpath:application.properties"})
 public class FileController {
 
-    public static final String filePath = "E:\\software programe\\ideaprogram\\springboot-hello\\src\\main\\resources\\static\\images\\";
+    @Value("${web.file.path}")
+    public String filePath ;
 
     @RequestMapping("/api/v1/gapage")
     public Object index() {
@@ -39,6 +43,7 @@ public class FileController {
 
         fileName = UUID.randomUUID() + suffixName;
         System.out.println("转换后的文件名称为： " + fileName);
+        System.out.println("filePath: " + filePath);
         File dest = new File(filePath + fileName);
 
         try {
