@@ -2,6 +2,7 @@ package com.swkang.springboot.springboothello.domain;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -23,5 +24,18 @@ public class CustomExHandler {
         map.put("msg", e.getMessage());
         map.put("url", request.getRequestURL());
         return map;
+    }
+
+    /**
+     * 处理自定义异常
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = MyException.class)
+    Object handlerMyException(Exception e){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("error.html");
+        modelAndView.addObject("msg", e.getMessage());
+        return modelAndView;
     }
 }
