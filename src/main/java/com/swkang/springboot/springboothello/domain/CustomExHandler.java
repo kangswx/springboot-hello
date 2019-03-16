@@ -31,7 +31,7 @@ public class CustomExHandler {
      * @return
      */
     @ExceptionHandler(value = MyException.class)
-    Object handlerMyException(Exception e, HttpServletRequest request){
+    Object handlerMyException(MyException e, HttpServletRequest request){
         //跳转到指定的页面
         /*ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("error.html");
@@ -40,8 +40,8 @@ public class CustomExHandler {
 
         //直接返回错误数据
         Map<String, Object> map = new HashMap<>();
-        map.put("code", 404);
-        map.put("msg", e.getMessage());
+        map.put("code", e.getCode());
+        map.put("msg", e.getMsg());
         map.put("url", request.getRequestURL());
         return map;
     }
