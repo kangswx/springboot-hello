@@ -1,7 +1,6 @@
 package com.swkang.springboot.springboothello.domain;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +17,6 @@ public class CustomExHandler {
      * @return
      */
     @ExceptionHandler(value = Exception.class)
-    @ResponseBody
     Object handlerException(Exception e, HttpServletRequest request){
         Map<String, Object> map = new HashMap<>();
         map.put("code", 100);
