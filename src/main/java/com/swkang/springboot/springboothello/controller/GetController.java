@@ -103,4 +103,12 @@ public class GetController {
         return params;
     }
 
+    @GetMapping("/api2/v1/account")
+    public Object account(){
+        params.clear();
+        System.out.println("/api2/v1/account");
+        params.put("money", "1000");
+        return params;
+    }
+
 }
