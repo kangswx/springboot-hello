@@ -31,12 +31,13 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("doFilter loginFilter");
         HttpServletRequest req = (HttpServletRequest)servletRequest;
-        HttpServletResponse reqp = (HttpServletResponse)servletResponse;
+        HttpServletResponse resp = (HttpServletResponse)servletResponse;
         String userName = req.getParameter("userName");
         System.out.println("userName: " + userName);
         if("swkang".equals(userName)){
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
+            resp.sendRedirect("/index.html");
             return;
         }
     }
