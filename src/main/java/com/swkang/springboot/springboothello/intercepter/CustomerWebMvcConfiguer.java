@@ -9,7 +9,10 @@ public class CustomerWebMvcConfiguer implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginIntercepter()).addPathPatterns("/api2/*/**");
+
+        registry.addInterceptor(new LoginIntercepter()).addPathPatterns("/api2/*/**"); //拦截的资源
+        registry.addInterceptor(new TwoIntercepter()).addPathPatterns("/api2/*/**");
+                //.excludePathPatterns("/api2/xx/**");  不进行拦截的资源
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }
