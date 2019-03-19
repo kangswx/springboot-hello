@@ -94,4 +94,13 @@ public class GetController {
         return serverSettings;
     }
 
+    @RequestMapping("/v1/test_requests")
+    public Object testRequest(HttpServletRequest request){
+        params.clear();
+        String id = request.getParameter("id");
+        System.out.println("controller 处理中");
+        params.put("id11", id);
+        return params;
+    }
+
 }
