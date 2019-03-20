@@ -89,9 +89,26 @@ public class GetController {
     @Autowired
     private ServerSettings serverSettings;
 
-    @GetMapping("/v1/test_properties")
+    @GetMapping("/api/test_properties")
     public Object testProperties(){
         return serverSettings;
+    }
+
+    @RequestMapping("/v1/test_requests")
+    public Object testRequest(HttpServletRequest request){
+        params.clear();
+        String id = request.getParameter("id");
+        System.out.println("controller 处理中");
+        params.put("id11", id);
+        return params;
+    }
+
+    @GetMapping("/api2/v1/account")
+    public Object account(){
+        params.clear();
+        System.out.println("/api2/v1/account");
+        params.put("money", "1000");
+        return params;
     }
 
 }
