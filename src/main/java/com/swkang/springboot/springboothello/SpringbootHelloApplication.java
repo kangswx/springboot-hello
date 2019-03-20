@@ -18,7 +18,6 @@ public class SpringbootHelloApplication {
     @Bean
     public MultipartConfigElement multipartConfigElement(){
         MultipartConfigFactory factory = new MultipartConfigFactory();
-
         //单个文件最大
         factory.setMaxFileSize("10240KB");
         //设置上传数据总大小
