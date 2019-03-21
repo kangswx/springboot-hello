@@ -52,4 +52,10 @@ public class UsersController {
         return "delete success";
     }
 
+    @GetMapping("add_account")
+    public Object transac(){
+        int id = usersService.addAccount();
+        return id;
+    }
+
 }
